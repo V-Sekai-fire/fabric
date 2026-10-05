@@ -1,23 +1,18 @@
 # fabric
 
-A [repo](https://gerrit.googlesource.com/git-repo) manifest: 25 projects across 5 GitHub orgs.
+A repo manifest that checks out the gyre dependency set as one workspace laid out on the sides of a hexagon.
+
+## Use
+
+`default.xml` gives every project a numbered side directory, its own remote and its own revision, so a project that omits either fails at init rather than inheriting a default. The libraries a build links are pinned to release tags. This repository holds the manifest and nothing else.
+
+## Build and run
 
 ```sh
-repo init -u https://github.com/v-sekai-multiplayer-fabric/fabric && repo sync -j8
+repo init -u https://github.com/V-Sekai-fire/fabric
+repo sync
 ```
 
-## The layout
+## Licence
 
-`default.xml` gives each project a `path`, so the workspace is one hexagon and the numbered directories are its sides; that file's opening comment names all six. This repository is not among them — `repo init` clones it to `.repo/manifests` and reads the manifest from there, so edit it in that checkout. Every project states its own `remote` and `revision`, so one that omits either fails at `repo init` rather than inheriting a default. Every project tracks its repository's default branch, and the check that keeps this sentence true asks GitHub rather than the manifest. The three that do not are the libraries a build links, pinned to a release tag rather than a branch because a library a build links is exactly the value a manifest exists to state. A tag can move where a commit cannot, so the commit each tag named when it was pinned is recorded here and gated:
-
-| project | revision | commit |
-| --- | --- | --- |
-| `geogram` | `refs/tags/v1.10.0` | `c8529bb00838186938ab31d96008a59b6a892dee` |
-| `pmp-library` | `refs/tags/3.0.0` | `f2fb04f4a4188a5c1ab137e83b96e62fa99c639f` |
-| `QCBOR` | `refs/tags/v1.6.1` | `930708bb86481e88879eb1d87fd4d664f1d69503` |
-
-## What this repository is not
-
-It holds the manifest and nothing else. The conventions, the ledger that books the hours, the gates that decide whether these documents are true, and the logbook are all one project on the `0-` side: `infrastructure-logbook`, checked out at `0-infrastructure/logbook`. It is a project like any other, so `repo sync` brings it down with the rest and its gates read this file from `.repo/manifests` the way they read every other checkout.
-
-They lived here until the two jobs were told apart. A manifest is read by a tool on every sync; a record is read by people and rewritten as the work moves, and keeping them in one repository meant every entry in the second was a commit against the first.
+MIT. See `LICENSE`.
