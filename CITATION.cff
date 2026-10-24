@@ -3,7 +3,7 @@ message: "If you use this software, please cite it as below."
 title: "fabric: the multiplayer-fabric repo manifest"
 abstract: >
   A repo manifest checking out 53 projects across 5 GitHub organisations as one
-  hexagon, whose numbered directories are the six positions RFD 0111 names, plus a
+  hexagon, whose numbered directories are the six positions RFD66606-0111 names, plus a
   packing of them and the record kept about the whole. Every project states its own
   remote and revision, so one that omits either fails at init rather than inheriting
   a default nobody chose. This repository holds default.xml and nothing else: the
